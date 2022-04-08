@@ -10,7 +10,6 @@ class PaginationView extends View {
       debugger;
       const btn = e.target.closest('.btn--inline');
       if (!btn) return;
-
       const goToPage = +btn.dataset.goto;
       return handler(goToPage);
     });
@@ -23,29 +22,33 @@ class PaginationView extends View {
     if (curPage === 1 && pages > 1) {
       return this.#generateNextButton(curPage);
     }
-
+    // last page
     if (curPage === pages && pages > 1) {
       return this.#generatePrevButton(curPage);
     }
 
+    // others pages
     if (curPage < pages) {
       return this.#generatePrevButton(curPage).concat(
         this.#generateNextButton(curPage)
       );
     }
 
+    // if only one page exists
     return '';
   }
 
   #generatePrevButton(curPage) {
-    return `<button data-goto="${
-      curPage - 1
-    }" class="btn--inline pagination__btn--prev">
-      <svg class="search__icon">
-        <use href="${icons}#icon-arrow-left"></use>
-      </svg>
-      <span>Page ${curPage - 1}</span>
-    </button>`;
+    return `
+          <button data-goto="${
+            curPage - 1
+          }" class="btn--inline pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="${icons}#icon-arrow-left"></use>
+            </svg>
+            <span>Page ${curPage - 1}</span>
+          </button>
+    `;
   }
 
   #generateNextButton(curPage) {

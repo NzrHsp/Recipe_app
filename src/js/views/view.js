@@ -52,10 +52,11 @@ export default class View {
   }
 
   renderMessage(message = this._message) {
+    debugger;
     const markup = `<div class="message">
     <div>
       <svg>
-        <use href="src/img/icons.svg#icon-smile"></use>
+        <use href="${icons}#icon-smile"></use>
       </svg>
     </div>
     <p>

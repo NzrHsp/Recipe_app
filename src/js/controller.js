@@ -10,7 +10,7 @@ import paginationView from './views/paginationView';
 
 import bookmarksView from './views/bookmarksView';
 
-import addRecipeView from './views/AddRecipeView';
+import addRecipeView from './views/addRecipeView';
 
 import { MODAL_CLOSE_SEC } from './config.js';
 // import 'core-js/stable';

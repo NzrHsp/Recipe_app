@@ -90,7 +90,7 @@ const controlAddBookmark = function () {
 };
 
 const controlBookmark = function () {
-  bookmarksView.render(model.state.bookmarks);
+  bookmarksView.render(model.state.bookMarks);
 };
 
 const controlAddRecipe = async function (newRecipe) {
@@ -106,6 +106,12 @@ const controlAddRecipe = async function (newRecipe) {
 
     // Success message
     addRecipeView.renderMessage();
+
+    // Render bookmark view
+    bookmarksView.render(model.state.bookMarks);
+
+    // Change ID in URL
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
 
     // Close form window
     setTimeout(function () {
